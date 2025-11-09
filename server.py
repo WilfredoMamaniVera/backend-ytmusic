@@ -32,7 +32,9 @@ async def download_music(url: str, quality: str, background_tasks: BackgroundTas
         'quiet': True,
         'no_warnings': True,
         'outtmpl': os.path.join(TEMP_DIR, f"{temp_id}.%(ext)s"),
-        'nocheckcertificate': True, # Ayuda a veces con bloqueos SSL
+        'nocheckcertificate': True,
+        'cache_dir': os.path.join(TEMP_DIR, '.cache'), 
+        'no_cookies_from_browser': True, 
     }
 
     # SI EXISTE EL ARCHIVO DE COOKIES (En Render), USARLO
